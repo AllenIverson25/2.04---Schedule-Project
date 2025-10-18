@@ -1,0 +1,51 @@
+[
+  {
+    "className": "BCC ENG121 The Writing Process",
+    "teacher": "Matthew Sauter",
+    "roomNumber": "E111",
+    "period": 1,
+    "subjectArea": "English"
+  },
+  {
+    "className": "AP Macroeconomics",
+    "teacher": "Robert Anderson",
+    "roomNumber": "A106",
+    "period": 2,
+    "subjectArea": "Social Studies"
+  },
+  {
+    "className": "AP Calculus AB",
+    "teacher": "Thomas Sandoval",
+    "roomNumber": "A219",
+    "period": 3,
+    "subjectArea": "Math"
+  },
+  {
+    "className": "AP Statistics",
+    "teacher": "Jessica Marshall",
+    "roomNumber": "A221",
+    "period": 4,
+    "subjectArea": "Math"
+  },
+  {
+    "className": "Honors Spanish 4",
+    "teacher": "Annamaria Saraceni",
+    "roomNumber": "A202",
+    "period": 5,
+    "subjectArea": "Language"
+  },
+  {
+    "className": "Honors NJIT IS219 Advanced Website Development",
+    "teacher": "Gregory Kilgore",
+    "roomNumber": "B111",
+    "period": 6,
+    "subjectArea": "Computer Science"
+  },
+  {
+    "className": "Health 12",
+    "teacher": "Nicholas Scalzo",
+    "roomNumber": "C130",
+    "period": 7,
+    "subjectArea": "Health"
+  }
+]

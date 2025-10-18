@@ -1,0 +1,51 @@
+[
+  {
+    "className": "Honors English 12",
+    "teacher": "Christopher Hayes",
+    "roomNumber": "E112",
+    "period": 1,
+    "subjectArea": "English"
+  },
+  {
+    "className": "AP Environmental Science",
+    "teacher": "Dr. Rachel Green",
+    "roomNumber": "D304",
+    "period": 2,
+    "subjectArea": "Science"
+  },
+  {
+    "className": "AP Statistics",
+    "teacher": "Daniel Cooper",
+    "roomNumber": "A118",
+    "period": 3,
+    "subjectArea": "Math"
+  },
+  {
+    "className": "AP Government and Politics",
+    "teacher": "Susan Miller",
+    "roomNumber": "A310",
+    "period": 4,
+    "subjectArea": "Social Studies"
+  },
+  {
+    "className": "German 3",
+    "teacher": "Hans Mueller",
+    "roomNumber": "A205",
+    "period": 5,
+    "subjectArea": "Language"
+  },
+  {
+    "className": "Concert Band",
+    "teacher": "Victoria Ross",
+    "roomNumber": "F101",
+    "period": 6,
+    "subjectArea": "Other"
+  },
+  {
+    "className": "Studio Art",
+    "teacher": "Isabella Garcia",
+    "roomNumber": "B215",
+    "period": 7,
+    "subjectArea": "Other"
+  }
+]
