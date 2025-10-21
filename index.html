@@ -15,8 +15,8 @@
         <div class="shape shape-3"></div>
     </div>
     
-    <div class="container">
-        <header class="header-wave">
+    <div class="container-fluid px-3 px-md-5">
+        <header class="header-wave text-center">
             <h1 class="glitch-text">Schedule Flow</h1>
             <p class="subtitle">Your daily rhythm, visualized</p>
         </header>
@@ -24,11 +24,11 @@
         <div class="control-panel">
             <div class="instructions-bubble">
                 <span class="pulse-dot"></span>
-                <p>Select a student from the dropdown to view their schedule</p>
+                <p class="mb-0">Select a student from the dropdown to view their schedule</p>
             </div>
             
             <div class="selector-wrapper">
-                <label for="scheduleSelect">Student</label>
+                <label for="scheduleSelect" class="mb-0">Student</label>
                 <select id="scheduleSelect" class="fluid-select">
                     <option value="JosephSchedule.json">Joseph Friedman</option>
                     <option value="SathvikSchedule.json">Sathvik Sridar</option>
@@ -41,9 +41,13 @@
 
         <div id="status" class="status-message"></div>
         
-        <div class="timeline-wrapper">
-            <div class="timeline-line"></div>
-            <div id="scheduleContainer" class="schedule-flow"></div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-10">
+                <div class="timeline-wrapper">
+                    <div class="timeline-line"></div>
+                    <div id="scheduleContainer" class="schedule-flow"></div>
+                </div>
+            </div>
         </div>
     </div>
 

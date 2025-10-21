@@ -1,3 +1,4 @@
+/* https://uiverse.io/elements. Used website for help with css */
 * {
     margin: 0;
     padding: 0;
@@ -55,7 +56,6 @@ body {
     background: linear-gradient(45deg, #ff6b9d, #c06c84);
     top: -200px;
     left: -200px;
-    animation-delay: 0s;
 }
 
 .shape-2 {
@@ -83,22 +83,19 @@ body {
     75% { transform: translate(100px, 100px) rotate(270deg); }
 }
 
-.container {
+.container-fluid {
     position: relative;
     z-index: 2;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .header-wave {
-    text-align: center;
     margin-bottom: 80px;
-    position: relative;
 }
 
 .glitch-text {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 8vw, 6rem);
     font-weight: 900;
     background: linear-gradient(45deg, #fff, #00f2fe, #ff6b9d, #fff);
     background-size: 300% 300%;
@@ -115,7 +112,7 @@ body {
 }
 
 .subtitle {
-    font-size: 1.4rem;
+    font-size: clamp(0.9rem, 3vw, 1.4rem);
     color: rgba(255, 255, 255, 0.6);
     margin-top: 10px;
     letter-spacing: 4px;
@@ -141,6 +138,7 @@ body {
     align-items: center;
     gap: 15px;
     animation: fadeInDown 1s ease;
+    max-width: 100%;
 }
 
 @keyframes fadeInDown {
@@ -160,6 +158,7 @@ body {
     background: #00f2fe;
     border-radius: 50%;
     animation: pulse 2s ease infinite;
+    flex-shrink: 0;
 }
 
 @keyframes pulse {
@@ -174,15 +173,16 @@ body {
 }
 
 .instructions-bubble p {
-    margin: 0;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
 .selector-wrapper {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
@@ -210,7 +210,7 @@ body {
     background: transparent;
     border: none;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: 600;
     padding: 5px 30px 5px 10px;
     cursor: pointer;
@@ -288,21 +288,6 @@ body {
     flex-direction: row-reverse;
 }
 
-.class-item:nth-child(even) .class-content {
-    animation: slideInRight 0.6s ease forwards;
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 .period-marker {
     position: absolute;
     left: 50%;
@@ -329,20 +314,6 @@ body {
     border-radius: 30px;
     padding: 30px 40px;
     transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.class-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
 }
 
 .class-content:hover {
@@ -352,12 +323,8 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
-.class-content:hover::before {
-    opacity: 1;
-}
-
 .class-name {
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
     font-weight: 700;
     margin-bottom: 15px;
     color: #fff;
@@ -375,12 +342,12 @@ body {
     align-items: center;
     gap: 10px;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
 .detail-label {
     color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
     text-transform: uppercase;
     letter-spacing: 1px;
     min-width: 80px;
@@ -395,82 +362,55 @@ body {
     display: inline-block;
     padding: 8px 20px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
     font-weight: 600;
     margin-top: 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
+/* Subject area colors */
 .subject-Math {
     background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: #fff;
 }
 
 .subject-Science {
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #fff;
 }
 
 .subject-English {
     background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: #fff;
 }
 
 .subject-Social-Studies {
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #333;
 }
 
 .subject-Language {
     background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #333;
 }
 
-.subject-Computer-Science {
+.subject-Technology {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
 }
 
 .subject-Health {
     background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #fff;
 }
 
-.subject-Other {
-    background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
-    color: #333;
+.subject-Physical-Education {
+    background: linear-gradient(135deg, #ffc837 0%, #ff8008 100%);
+    color: #fff;
 }
 
-@media (max-width: 992px) {
-    .class-item {
-        flex-direction: column !important;
-        align-items: flex-start;
-        padding-left: 80px;
-    }
-    
-    .class-content {
-        width: 100%;
-    }
-    
-    .period-marker {
-        left: 30px;
-    }
-    
-    .timeline-line {
-        left: 30px;
-    }
-}
-
-@media (max-width: 576px) {
-    .container {
-        padding: 40px 20px;
-    }
-    
-    .glitch-text {
-        font-size: 2.5rem;
-    }
-    
-    .subtitle {
-        font-size: 1rem;
-    }
-    
-    .selector-wrapper {
-        flex-direction: column;
-        padding: 20px 30px;
-        gap: 10px;
-    }
+.subject-Financial-Literacy {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    color: #fff;
 }

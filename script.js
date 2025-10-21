@@ -1,43 +1,45 @@
-// Get DOM elements
-const scheduleSelect = document.getElementById('scheduleSelect');
-const scheduleContainer = document.getElementById('scheduleContainer');
-const statusDiv = document.getElementById('status');
+// ===== GET DOM ELEMENTS =====
+// These variables store references to HTML elements we need to manipulate
+const scheduleSelect = document.getElementById('scheduleSelect'); // The dropdown menu
+const scheduleContainer = document.getElementById('scheduleContainer'); // Where schedule cards appear
+const statusDiv = document.getElementById('status'); // For loading/error messages
 
-// Async function to load schedule data from JSON file
-// Parameter: fileName - the name of the JSON file to fetch
+// ===== ASYNC FUNCTION TO LOAD SCHEDULE =====
+// This function loads a JSON file and displays the schedule
+// Parameter: fileName - the name of the JSON file to load (e.g., "JosephSchedule.json")
 async function loadSchedule(fileName) {
-    // Show loading message
+    
+    // Show loading message while fetching data
     statusDiv.innerHTML = `<div class="alert alert-info">Loading schedule...</div>`;
-    scheduleContainer.innerHTML = "";
+    scheduleContainer.innerHTML = ""; // Clear old schedule
     
     try {
-        // Use fetch with template literal to construct the path
+        // ===== FETCH THE JSON FILE =====
+        // Template literal constructs the path: ./json/JosephSchedule.json
         const response = await fetch(`./json/${fileName}`);
         
-        // Check if the fetch was successful
+        // Check if the file was found (response.ok is true if status is 200-299)
         if (!response.ok) {
-            throw new Error('Failed to load schedule data');
+            throw new Error('File not found');
         }
         
-        // Convert response to JSON
-        const scheduleData = await response.json();
+        // ===== CONVERT RESPONSE TO JSON =====
+        // Parse the JSON data into a JavaScript array
+        const classes = await response.json();
         
-        // Sort classes by period 
-        scheduleData.sort((a, b) => a.period - b.period);
+        // ===== SORT CLASSES BY PERIOD =====
+        // This arranges classes in order: period 1, 2, 3, etc.
+        classes.sort((a, b) => a.period - b.period);
         
-        // Clear loading message
+        // Clear loading message once data is ready
         statusDiv.innerHTML = "";
         
-        // Clear container before adding new content
-        scheduleContainer.innerHTML = "";
-        
-        // Loop through each class and build HTML using insertAdjacentHTML
-        scheduleData.forEach((classItem, index) => {
-            // Determine subject category for styling
-            let subjectCategory = classItem.subjectArea.replace(/\s+/g, '-');
+        // ===== BUILD THE SCHEDULE CARDS =====
+        // Loop through each class in the array
+        classes.forEach((classItem, index) => {
             
-            // Build HTML for each class item
-            const classHTML = `
+            // Create the HTML for one class card
+            const cardHTML = `
                 <div class="class-item" style="animation-delay: ${index * 0.1}s">
                     <div class="period-marker">
                         ${classItem.period}
@@ -54,36 +56,38 @@ async function loadSchedule(fileName) {
                                 <span class="detail-value">${classItem.roomNumber}</span>
                             </div>
                         </div>
-                        <span class="subject-badge subject-${subjectCategory}">${classItem.subjectArea}</span>
+                        <span class="subject-badge subject-${classItem.subjectArea.replace(/\s+/g, '-')}">${classItem.subjectArea}</span>
                     </div>
                 </div>
             `;
             
-            // Use insertAdjacentHTML to add the class card to the container
-            // 'beforeend' places it at the end of the container
-            scheduleContainer.insertAdjacentHTML('beforeend', classHTML);
+            // ===== INSERT THE CARD INTO THE PAGE =====
+            // 'beforeend' adds it at the end of scheduleContainer
+            scheduleContainer.insertAdjacentHTML('beforeend', cardHTML);
         });
         
     } catch (error) {
-        // Display user-friendly error message if loading fails
+        // ===== DISPLAY ERROR MESSAGE IF SOMETHING FAILS =====
         statusDiv.innerHTML = `
-            <div class="alert alert-danger" style="background: rgba(220, 53, 69, 0.2); border: 1px solid rgba(220, 53, 69, 0.5); padding: 20px; border-radius: 15px; text-align: center;">
-                <strong>Oops!</strong> Unable to load the schedule. Please make sure the JSON files are in the correct folder.
+            <div class="alert alert-danger">
+                <strong>Oops!</strong> Unable to load the schedule. Please check that the file exists in the json folder.
             </div>
         `;
-        scheduleContainer.innerHTML = "";
-        console.error('Error loading schedule:', error);
+        console.error('Error:', error); // Log error to console for debugging
     }
 }
 
-// Event listener for dropdown change event (not a button click as required)
-scheduleSelect.addEventListener('change', (e) => {
-    // Get the selected file name from the dropdown value
-    const selectedFile = e.target.value;
-    // Load the schedule with the selected file
+// ===== EVENT LISTENER FOR DROPDOWN (NON-BUTTON EVENT) =====
+// This listens for the 'change' event when user selects a different student
+scheduleSelect.addEventListener('change', function(event) {
+    // Get the selected file name from the dropdown's value
+    const selectedFile = event.target.value;
+    
+    // Load the schedule for the selected student
     loadSchedule(selectedFile);
 });
 
-// Automatically load the default schedule when page loads
-// This ensures your schedule (Joseph's) loads on page open
+// ===== LOAD DEFAULT SCHEDULE ON PAGE LOAD =====
+// This runs automatically when the page opens
+// It loads Joseph's schedule (your schedule)
 loadSchedule('JosephSchedule.json');
