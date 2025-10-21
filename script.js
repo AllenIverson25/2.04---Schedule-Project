@@ -22,7 +22,7 @@ async function loadSchedule(fileName) {
         // Convert response to JSON
         const scheduleData = await response.json();
         
-        // Sort classes by period (extra credit requirement)
+        // Sort classes by period 
         scheduleData.sort((a, b) => a.period - b.period);
         
         // Clear loading message
